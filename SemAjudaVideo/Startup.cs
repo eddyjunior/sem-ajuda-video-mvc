@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using SemAjudaVideo.Models;
 
 namespace SemAjudaVideo
 {
@@ -33,6 +35,10 @@ namespace SemAjudaVideo
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<SemAjudaVideoContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("SemAjudaVideoContext"), builder =>
+                        builder.MigrationsAssembly("SemAjudaVideo")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

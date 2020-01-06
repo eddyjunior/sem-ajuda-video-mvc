@@ -1,6 +1,6 @@
 using System;
 
-namespace SemAjudaVideo.Models
+namespace SemAjudaVideo.Models.ViewModels
 {
     public class ErrorViewModel
     {
